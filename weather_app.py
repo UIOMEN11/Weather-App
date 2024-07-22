@@ -4,7 +4,7 @@ import requests
 
 def data_get():
     city = city_name.get()
-    data = requests.get("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=37d1cb8d2d6c251044805b3459ce9ab0").json()
+    data = requests.get("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid={YOUR API KEY}").json()
     w_label1.config(text=data["weather"][0]["main"])
     wb_label1.config(text=data["weather"][0]["description"])
     temp_label1.config(text=str(int(data["main"]["temp"]-273.15)))
@@ -36,8 +36,6 @@ w_label1 = Label(win,text="",
 w_label1.place(x=250,y=260,height=50,width=200)
 
 
-
-
 wb_label = Label(win,text="Weather Description",
                    font=("San Serif",14))
 wb_label.place(x=25,y=330,height=50,width=210)
@@ -47,8 +45,6 @@ wb_label1 = Label(win,text="",
 wb_label1.place(x=250,y=330,height=50,width=210)
 
 
-
-
 temp_label = Label(win,text="Temperature",
                    font=("San Serif",17))
 temp_label.place(x=25,y=400,height=50,width=210)
@@ -56,8 +52,6 @@ temp_label.place(x=25,y=400,height=50,width=210)
 temp_label1 = Label(win,text="",
                    font=("San Serif",17))
 temp_label1.place(x=250,y=400,height=50,width=210)
-
-
 
 
 per_label = Label(win,text="Pressure",
@@ -72,12 +66,6 @@ per_label1.place(x=250,y=470,height=50,width=210)
 done_button = Button(win,text="Show",
                    font=("San Serif",17,"bold"),command=data_get)
 done_button.place(x=200,y=190,height=50,width=100)
-
-
-
-
-
-
 
 
 win.mainloop()
